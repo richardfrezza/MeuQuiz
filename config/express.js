@@ -12,4 +12,4 @@ consign()
   .then('resources')
   .into(app);
 
-module.tqs=jyexports = app;
+module.exports = app;
