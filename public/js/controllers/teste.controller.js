@@ -3,13 +3,11 @@
 
     angular
         .module('app')
-        .controller('TestListController', TestListController);
+        .controller('TesteController', TesteController);
 
-    
-    function TestListController() {
+    function TesteController() {
         var vm = this;
-        vm.richard = "oh deu certo";
-
+        vm.richard = 'Olá aqui está tudo bem!'
         activate();
 
         ////////////////

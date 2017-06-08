@@ -5,22 +5,19 @@
     .module('app')
     .controller('QuestionarioListController', QuestionarioListController);
 
-  QuestionarioListController.$inject = ['QuestionarioService']
+  //QuestionarioListController.$inject = ['QuestionarioService']
   function QuestionarioListController() {
     var vm = this;
     vm.questionarios = [];
     vm.busca = ''
 
-    //vm.remover = remover;
+    vm.remover = remover;
     vm.buscar = activate;
 
     activate();
-
-    function activate() { }
-
-    ////////////////
-
-    /* function activate() {
+    
+    
+  function activate() {
       var query = vm.busca ? { titulo: vm.busca } : {}
       QuestionarioService.find(query)
         .success(function (data) {
@@ -35,7 +32,7 @@
             activate();
           });
       });
-   }*/
+   }
 
   }
 })();

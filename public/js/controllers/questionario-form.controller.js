@@ -9,14 +9,12 @@
   function QuestionarioFormController(QuestionarioService, $location, $routeParams) {
     var vm = this;
     vm.questionario = {};
-    vm.titulo = 'Novo Cliente';
+    vm.titulo = 'Novo Questionário';
 
     vm.salvar = salvar;
 
     activate();
-
-    ////////////////
-
+    
     function activate() {
       if ($routeParams.id) {
         QuestionarioService.findById($routeParams.id)

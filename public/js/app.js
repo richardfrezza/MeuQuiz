@@ -54,16 +54,17 @@
         controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
-      .when('/clientes/:id', {
-        templateUrl: 'partials/cliente-form.html',
-        controller: 'ClienteFormController',
+      .when('/questionarios/:id', {
+        templateUrl: 'partials/questionario-form.html',
+        controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
       .when('/teste', {
-        templateUrl: 'partials/teste-form.html',
-        controller: 'TestListController.js',
+        templateUrl: 'partials/teste.html',
+        controller: 'TesteController',
         controllerAs: 'vm'
       })
+     
       .otherwise('/');
   }
 })();
