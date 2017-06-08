@@ -49,12 +49,17 @@
         controller: 'QuestionarioListController',
         controllerAs: 'vm'
       })
-      .when('/questionarios/:id', {
+      .when('/questionarios/new', {
         templateUrl: 'partials/questionario-form.html',
         controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
-       .when('/teste', {
+      .when('/clientes/:id', {
+        templateUrl: 'partials/cliente-form.html',
+        controller: 'ClienteFormController',
+        controllerAs: 'vm'
+      })
+      .when('/teste', {
         templateUrl: 'partials/teste-form.html',
         controller: 'TestListController.js',
         controllerAs: 'vm'
