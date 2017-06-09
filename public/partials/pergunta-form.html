@@ -4,17 +4,17 @@
     <div class="form-group">
       <label for="titulo" class="col-sm-2 control-label">Título</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control" ng-model="vm.questionario.titulo" id="titulo" required>
+        <input type="text" class="form-control" ng-model="vm.pergunta.titulo" id="titulo" required>
       </div>
     </div>
     <div class="form-group">
-      <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+      <label for="peso" class="col-sm-2 control-label">Peso</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control" ng-model="vm.questionario.descricao"  id="descricao">
+        <input type="text" class="form-control" ng-model="vm.pergunta.peso"  id="peso">
       </div>
     </div>
     <div class="text-right col-sm-10">
-      <a href="#/questionarios" class="btn btn-danger">Cancelar</a>
+      <a href="#/perguntas" class="btn btn-danger">Cancelar</a>
       <button ng-click="vm.salvar()" type="button" class="btn btn-success btn-lg">Salvar</button>
     </div>
   </form>

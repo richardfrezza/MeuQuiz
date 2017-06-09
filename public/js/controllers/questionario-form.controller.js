@@ -19,7 +19,7 @@
       if ($routeParams.id) {
         QuestionarioService.findById($routeParams.id)
           .success(function (data) {
-            vm.questinario = data;
+            vm.questionario = data;
             vm.titulo = 'Editando Questionário'
           });
       }

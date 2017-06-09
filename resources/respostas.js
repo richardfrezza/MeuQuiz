@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var pedidoModel = mongoose.model('respostas');
+var respostaModel = mongoose.model('respostas');
 var parseParams = require('../utils/parse-params');
 
 module.exports = function(app) {
   app.get('/api/respostas', function(req, resp) {
-    pedidoModel.find(parseParams(req.query.filter), [], {sort: {usario: 1, }})
+    respostaModel.find(parseParams(req.query.filter), [], {sort: {usario: 1, }})
       .populate('usuario', 'nome documento')
       .populate('questionario','titulo')
       .then(function(dados){
@@ -14,7 +14,7 @@ module.exports = function(app) {
       })
   });
   app.post('/api/respostas', function(req, resp) {
-    pedidoModel.create(req.body)
+    respostaModel.create(req.body)
       .then(function(dado) {
         resp.json(dado);
       }, function(erro) {
@@ -22,7 +22,7 @@ module.exports = function(app) {
       });
   });
   app.put('/api/respostas/:id', function(req, resp) {
-    pedidoModel.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
+    respostaModel.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
       .then(function(data) {
         resp.json(data);
       }, function(erro) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
       });
   });
   app.delete('/api/respostas/:id', function(req, resp) {
-    pedidoModel.remove({_id: req.params.id})
+    respostaModel.remove({_id: req.params.id})
       .then(function() {
         resp.sendStatus(204);
       }, function(erro) {
@@ -38,7 +38,7 @@ module.exports = function(app) {
       });
   });
   app.get('/api/respostas/:id', function(req, resp) {
-    pedidoModel.findById(req.params.id)
+    respostaModel.findById(req.params.id)
       .then(function(data) {
         resp.json(data);
       }, function(erro) {

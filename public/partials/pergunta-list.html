@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Questionários</h2>
+  <h2>Perguntas</h2>
   <form class="form-inline">
     <div class="form-group">
       <label class="control-label" for="busca">Filtro:</label>
@@ -9,9 +9,9 @@
         <i class="fa fa-search" aria-hidden="true"></i>
       </a>
     </div>
-    <a class="btn btn-success pull-right" href="#/questionarios/new">
+    <a class="btn btn-success pull-right" href="#/perguntas/new">
       <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-      <span>Novo Questionário</span>
+      <span>Nova Pergunta</span>
     </a>
   </form>
   <div class="table-responsive">
@@ -19,19 +19,19 @@
       <thead>
         <tr>
           <th>Título</th>
-          <th>Descrição</th>
+          <th>Peso</th>
           <th></th>
         </tr>
-      </thead>
+      </thead> 
       <tbody>
-        <tr ng-repeat="item in vm.questionarios">
+        <tr ng-repeat="item in vm.perguntas">
           <td>{{item.titulo}}</td>
-          <td>{{item.descricao}}</td>
+          <td>{{item.peso}}</td>
           <td class="text-right">
-            <a id="add_perguntas" class="btn btn-link" ng-href="{{'#/' + item._id + '/perguntas/'}}">
-              <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i>
+            <a id="add_opcoes" class="btn btn-link" ng-href="{{'#/questionario/perguntas/' + item._id}}">
+              <i class="glyphicon glyphicon-list" aria-hidden="true"></i>
             </a>
-            <a id="editar" class="btn btn-link" ng-href="{{'#/questionarios/' + item._id}}">
+            <a id="editar" class="btn btn-link" ng-href="{{'#/perguntas/' + item._id}}">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
             <button id="remover" type="button" class="btn btn-link" ng-click="vm.remover(item)">

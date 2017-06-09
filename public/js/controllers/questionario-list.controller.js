@@ -5,8 +5,8 @@
     .module('app')
     .controller('QuestionarioListController', QuestionarioListController);
 
-  //QuestionarioListController.$inject = ['QuestionarioService']
-  function QuestionarioListController() {
+  QuestionarioListController.$inject = ['QuestionarioService'];
+  function QuestionarioListController(QuestionarioService) {
     var vm = this;
     vm.questionarios = [];
     vm.busca = ''
@@ -26,7 +26,8 @@
     }
 
    function remover(questionario) {
-      confirmBox('Deseja realmente remover o questionário "' + questionario.titulo + '"', function () {
+     var titulo = questionario.titulo || "sem título";
+      confirmBox('Deseja realmente remover o questionário "' + titulo + '"', function () {
         QuestionarioService.remove(questionario._id)
           .success(function () {
             activate();

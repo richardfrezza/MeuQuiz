@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var pedidoModel = mongoose.model('perguntas');
+var perguntaModel = mongoose.model('perguntas');
 var parseParams = require('../utils/parse-params');
 
 module.exports = function(app) {
   app.get('/api/perguntas', function(req, resp) {
-    pedidoModel.find(parseParams(req.query.filter), [], {sort: {criacao: 1}})
-      .populate('questionario', 'descricao')
+    perguntaModel.find(parseParams(req.query.filter), [], {sort: {criacao: 1}})
+      .populate('questionario', 'titulo')
       .then(function(dados){
         resp.json(dados);
       }, function(erro) {
@@ -13,7 +13,7 @@ module.exports = function(app) {
       })
   });
   app.post('/api/perguntas', function(req, resp) {
-    pedidoModel.create(req.body)
+    perguntaModel.create(req.body)
       .then(function(dado) {
         resp.json(dado);
       }, function(erro) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
       });
   });
   app.put('/api/perguntas/:id', function(req, resp) {
-    pedidoModel.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
+    perguntaModel.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
       .then(function(data) {
         resp.json(data);
       }, function(erro) {
@@ -29,7 +29,7 @@ module.exports = function(app) {
       });
   });
   app.delete('/api/perguntas/:id', function(req, resp) {
-    pedidoModel.remove({_id: req.params.id})
+    perguntaModel.remove({_id: req.params.id})
       .then(function() {
         resp.sendStatus(204);
       }, function(erro) {
@@ -37,7 +37,15 @@ module.exports = function(app) {
       });
   });
   app.get('/api/perguntas/:id', function(req, resp) {
-    pedidoModel.findById(req.params.id)
+    perguntaModel.findById(req.params.id)
+      .then(function(data) {
+        resp.json(data);
+      }, function(erro) {
+        resp.status(500).json(erro);
+      });
+  });
+  app.get('/api/:questionario/perguntas', function(req, resp) {
+    perguntaModel.findOne({questionario: ObjectId(req.params.questionario)})
       .then(function(data) {
         resp.json(data);
       }, function(erro) {

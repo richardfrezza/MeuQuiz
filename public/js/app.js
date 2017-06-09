@@ -59,12 +59,31 @@
         controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
-      .when('/teste', {
-        templateUrl: 'partials/teste.html',
-        controller: 'TesteController',
+       .when('/:questionario/perguntas', {
+        templateUrl: 'partials/pergunta-list.html',
+        controller: 'PerguntaListController',
         controllerAs: 'vm'
       })
-     
+      .when('/perguntas', {
+        templateUrl: 'partials/pergunta-list.html',
+        controller: 'PerguntaListController',
+        controllerAs: 'vm'
+      })
+      .when('/:questionario/perguntas/new', {
+        templateUrl: 'partials/pergunta-form.html',
+        controller: 'PerguntaFormController',
+        controllerAs: 'vm'
+      })
+       .when('/perguntas/new', {
+        templateUrl: 'partials/pergunta-form.html',
+        controller: 'PerguntaFormController',
+        controllerAs: 'vm'
+      })
+      .when('/perguntas/:id', {
+        templateUrl: 'partials/pergunta-form.html',
+        controller: 'PerguntaFormController',
+        controllerAs: 'vm'
+      })
       .otherwise('/');
   }
 })();
