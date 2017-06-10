@@ -59,12 +59,24 @@
         controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
-       .when('/:questionario/perguntas', {
-        templateUrl: 'partials/pergunta-list.html',
-        controller: 'PerguntaListController',
+
+.when('/usuarios', {
+        templateUrl: 'partials/usuario-list.html',
+        controller: 'UsuarioListController',
         controllerAs: 'vm'
       })
-      .when('/perguntas', {
+      .when('/usuarios/new', {
+        templateUrl: 'partials/usuario-form.html',
+        controller: 'UsuarioFormController',
+        controllerAs: 'vm'
+      })
+      .when('/usuarios/:id', {
+        templateUrl: 'partials/usuario-form.html',
+        controller: 'UsuarioFormController',
+        controllerAs: 'vm'
+      })
+
+       .when('/:questionario/perguntas', {
         templateUrl: 'partials/pergunta-list.html',
         controller: 'PerguntaListController',
         controllerAs: 'vm'
@@ -74,12 +86,7 @@
         controller: 'PerguntaFormController',
         controllerAs: 'vm'
       })
-       .when('/perguntas/new', {
-        templateUrl: 'partials/pergunta-form.html',
-        controller: 'PerguntaFormController',
-        controllerAs: 'vm'
-      })
-      .when('/perguntas/:id', {
+      .when('/:questionario/perguntas/:id', {
         templateUrl: 'partials/pergunta-form.html',
         controller: 'PerguntaFormController',
         controllerAs: 'vm'

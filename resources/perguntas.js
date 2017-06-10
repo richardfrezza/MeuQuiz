@@ -45,7 +45,7 @@ module.exports = function(app) {
       });
   });
   app.get('/api/:questionario/perguntas', function(req, resp) {
-    perguntaModel.findOne({questionario: ObjectId(req.params.questionario)})
+    perguntaModel.find({questionario: req.params.questionario})
       .then(function(data) {
         resp.json(data);
       }, function(erro) {

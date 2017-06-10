@@ -3,10 +3,10 @@
 
   angular
     .module('app')
-    .factory('PerguntaService', PerguntaService);
+    .factory('UsuarioService', UsuarioService);
 
-  PerguntaService.$inject = ['$http'];
-  function PerguntaService($http) {
+  UsuarioService.$inject = ['$http'];
+  function UsuarioService($http) {
     var service = {
       find: find,
       findById: findById,
@@ -14,14 +14,13 @@
       remove: remove
     };
 
-    /*var URL = '/api/:questionario/perguntas';*/
-    var URL = '/api/perguntas';
+    var URL = '/api/usuarios';
 
     return service;
 
     ////////////////
     function find(query) {
-       return $http.get(URL, { params: { filter: JSON.stringify(query) } });
+      return $http.get(URL, { params: { filter: JSON.stringify(query) } });
     }
 
     function findById(id) {

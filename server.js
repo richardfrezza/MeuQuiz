@@ -4,6 +4,7 @@ var database = require('./config/database');
 
 database('mongodb://localhost/quiz');
 
+
 http
   .createServer(app)
   .listen(8080, function(){
