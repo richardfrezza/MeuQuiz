@@ -18,7 +18,7 @@
     
     
   function activate() {
-      var query = vm.busca ? { titulo: vm.busca } : {}
+      var query = vm.busca ? { nome: vm.busca } : {}
       UsuarioService.find(query)
         .success(function (data) {
           vm.usuarios = data;

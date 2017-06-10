@@ -5,23 +5,25 @@
     .module('app')
     .factory('PerguntaService', PerguntaService);
 
-  PerguntaService.$inject = ['$http'];
-  function PerguntaService($http) {
+  PerguntaService.$inject = ['$http','$routeParams'];
+  function PerguntaService($http,$routeParams) {
     var service = {
       find: find,
       findById: findById,
       save: save,
-      remove: remove
+      remove: remove,
+      
     };
 
-    /*var URL = '/api/:questionario/perguntas';*/
-    var URL = '/api/perguntas';
-
+    //var URL = '/api/perguntas';
+    //var URL = '/api/'+$routeParams.questionario+'/perguntas';
+    var URL = '/api/:questionario'/perguntas; // ??????
+    
     return service;
 
     ////////////////
     function find(query) {
-       return $http.get(URL, { params: { filter: JSON.stringify(query) } });
+      return $http.get(URL, { params: { filter: JSON.stringify(query) } });
     }
 
     function findById(id) {

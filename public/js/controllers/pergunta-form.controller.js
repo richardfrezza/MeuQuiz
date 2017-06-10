@@ -10,7 +10,7 @@
     var vm = this;
     vm.perguntas = {};
     vm.titulo = 'Nova Pergunta';
-
+    vm.questionario = $routeParams.questionario;
     vm.salvar = salvar;
 
     activate();
@@ -26,9 +26,10 @@
     }
 
     function salvar() {
+      vm.pergunta.questionario = vm.questionario;
       PerguntaService.save(vm.pergunta)
         .success(function () {
-          $location.path('/perguntas')
+          $location.path(vm.pergunta.questionario+'/perguntas')
         })
     }
   }

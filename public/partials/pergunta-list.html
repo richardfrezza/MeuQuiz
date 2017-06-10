@@ -10,7 +10,7 @@
       </a>
     </div>
     <h1></h1>
-      <a class="btn btn-success pull-right" href="#/38457eerr398793/perguntas/new">
+      <a class="btn btn-success pull-right" href="{{'#/' + vm.questionario + '/perguntas/new'}}">
       <i class="fa fa-plus-square-o" aria-hidden="true"></i>
       <span>Nova Pergunta</span>
     </a>
@@ -32,7 +32,7 @@
             <a id="add_opcoes" class="btn btn-link" ng-href="{{'#/questionario/perguntas/' + item._id}}">
               <i class="glyphicon glyphicon-list" aria-hidden="true"></i>
             </a>
-            <a id="editar" class="btn btn-link" ng-href="{{'#/perguntas/' + item._id}}">
+            <a id="editar" class="btn btn-link" ng-href="{{'#/' + vm.questionario + '/perguntas/' + item._id}}">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
             <button id="remover" type="button" class="btn btn-link" ng-click="vm.remover(item)">

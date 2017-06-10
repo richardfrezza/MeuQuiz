@@ -14,25 +14,15 @@
     
     vm.remover = remover;
     vm.buscar = activate;
-    alert(vm.questionario);
+    //alert(vm.questionario);
     activate();   
 
   function activate() {
-      var query = vm.busca ? { titulo: vm.busca} : {}
+      var query = vm.busca ? {titulo: vm.busca, questionario: vm.questionario} : {questionario: vm.questionario};
       PerguntaService.find(query)
         .success(function (data) {
           vm.perguntas = data;
         });
-    }
-
-    function activate() {
-      if ($routeParams.id) {
-        PerguntaService.findById($routeParams.id)
-          .success(function (data) {
-            vm.pergunta = data;
-            vm.titulo = 'Editando Pergunta'
-          });
-      }
     }
 
    function remover(pergunta) {
