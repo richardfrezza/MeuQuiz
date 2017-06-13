@@ -14,36 +14,6 @@
         controller: 'MainController',
         controllerAs: 'vm'
       })
-      .when('/clientes', {
-        templateUrl: 'partials/cliente-list.html',
-        controller: 'ClienteListController',
-        controllerAs: 'vm'
-      })
-      .when('/clientes/new', {
-        templateUrl: 'partials/cliente-form.html',
-        controller: 'ClienteFormController',
-        controllerAs: 'vm'
-      })
-      .when('/clientes/:id', {
-        templateUrl: 'partials/cliente-form.html',
-        controller: 'ClienteFormController',
-        controllerAs: 'vm'
-      })
-      .when('/pedidos', {
-        templateUrl: 'partials/pedido-list.html',
-        controller: 'PedidoListController',
-        controllerAs: 'vm'
-      })
-      .when('/pedidos/new', {
-        templateUrl: 'partials/pedido-form.html',
-        controller: 'PedidoFormController',
-        controllerAs: 'vm'
-      })
-      .when('/pedidos/:id', {
-        templateUrl: 'partials/pedido-form.html',
-        controller: 'PedidoFormController',
-        controllerAs: 'vm'
-      })
       .when('/questionarios', {
         templateUrl: 'partials/questionario-list.html',
         controller: 'QuestionarioListController',
@@ -59,8 +29,7 @@
         controller: 'QuestionarioFormController',
         controllerAs: 'vm'
       })
-
-.when('/usuarios', {
+      .when('/usuarios', {
         templateUrl: 'partials/usuario-list.html',
         controller: 'UsuarioListController',
         controllerAs: 'vm'
@@ -75,8 +44,7 @@
         controller: 'UsuarioFormController',
         controllerAs: 'vm'
       })
-
-       .when('/:questionario/perguntas', {
+      .when('/:questionario/perguntas', {
         templateUrl: 'partials/pergunta-list.html',
         controller: 'PerguntaListController',
         controllerAs: 'vm'
@@ -88,6 +56,11 @@
       })
       .when('/:questionario/perguntas/:id', {
         templateUrl: 'partials/pergunta-form.html',
+        controller: 'PerguntaFormController',
+        controllerAs: 'vm'
+      })
+      .when('/:questionario/perguntas/opcao/:id', {
+        templateUrl: 'partials/pergunta-opcao-form.html',
         controller: 'PerguntaFormController',
         controllerAs: 'vm'
       })

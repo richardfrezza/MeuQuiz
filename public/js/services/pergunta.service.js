@@ -15,9 +15,9 @@
       
     };
 
-    //var URL = '/api/perguntas';
+    var URL = '/api/perguntas';
     //var URL = '/api/'+$routeParams.questionario+'/perguntas';
-    var URL = '/api/:questionario'/perguntas; // ??????
+    //var URL = '/api/:questionario'/perguntas; // ??????
     
     return service;
 
