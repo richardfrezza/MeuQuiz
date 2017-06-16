@@ -3,7 +3,8 @@
 
   angular.module('app', [
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'mgo-angular-wizard'
   ]).config(AppConfig);
 
   AppConfig.$inject = ['$routeProvider'];
@@ -62,6 +63,16 @@
       .when('/:questionario/perguntas/opcao/:id', {
         templateUrl: 'partials/pergunta-opcao-form.html',
         controller: 'PerguntaFormController',
+        controllerAs: 'vm'
+      })
+       .when('/questionario/respostas/', {
+        templateUrl: 'partials/resposta-questionario.html',
+        controller: 'QuestionarioListController',
+        controllerAs: 'vm'
+      })
+       .when('/:questionario/respostas/', {
+        templateUrl: 'partials/wizard.html',
+        controller: 'WizardController',
         controllerAs: 'vm'
       })
       .otherwise('/');

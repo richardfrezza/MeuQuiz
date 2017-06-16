@@ -1,0 +1,31 @@
+<wizard on-finish="vm.gravar()"> 
+    <wz-step wz-title="Iniciar" wz-order="0">
+        <h1>WIZARD</h1>
+        <p>
+          Inicie o questionário para resposder as perguntas !
+        </p>
+        <input class="btn btn-success" type="submit" wz-next value="Iniciar" />
+    </wz-step>
+    <wz-step ng-repeat="item in vm.steps track by $index" wz-title="{{+'___Nº '+($index + 1)+' __'}}" wz-order="{{$index + 1}}">
+        <h1>{{item.titulo}}</h1>
+        <ul>
+          <div ng-repeat="opcao in item.opcoes">
+            <label>
+              <input type="radio" name="radius"
+                  ng-model="vm.opcao.descricao"
+                  ng-value="opcao._id" />
+                  {{opcao.descricao}}
+            </label>
+          </div>  
+        </ul>
+        
+        <input class="btn btn-success" type="submit" wz-next value="Confirma" ng-click="vm.salvar()"/>
+    </wz-step>
+    <wz-step wz-title="Finalizar" wz-order="100">
+        <h1>Muito obrigado</h1>
+        <p>
+          Agradecemos por sua colaboração
+        </p>
+        <input class="btn btn-success" type="submit" wz-next value="Finalizar" />
+    </wz-step>
+</wizard>
