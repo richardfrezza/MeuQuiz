@@ -7,12 +7,13 @@
 
   PerguntaFormController.$inject = ['PerguntaService', '$location', '$routeParams', '$scope'];
   function PerguntaFormController(PerguntaService, $location, $routeParams, $scope) {
-    var vm = this;
+    var vm = this; 
     vm.pergunta = {};
     vm.titulo = 'Nova Pergunta';
     vm.opcao = null;
     var opcaoSelecionada = -1;
     vm.questionario = $routeParams.questionario;
+
     vm.salvar = salvar;
     vm.salvarAlternativa = salvarAlternativa;
     vm.adicionarAlternativa = adicionarAlternativa;
@@ -55,9 +56,7 @@
     function editarAlternativa(opcao) {
       opcaoSelecionada = vm.pergunta.opcoes.indexOf(opcao);
       vm.modalTitulo = 'Editando Alternativa';
-       alert(opcaoSelecionada);
-       alert(opcao);
-       vm.opcao = angular.copy(opcao);
+      vm.opcao = angular.copy(opcao);
     }
 
     function removerAlternativa(opcao) {
