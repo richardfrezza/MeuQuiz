@@ -38,27 +38,25 @@
     function salvar(pergunta, alternativa){
       
       opcaoSelecionada = (vm.resposta.respostas && vm.resposta.respostas.length) || 0; // pega tamhando atual do array
-      vm.resposta.respostasModelo = [];
-      vm.resposta.respostasModelo.pergunta = {};
-      vm.resposta.respostasModelo.opcao = {};
-      vm.resposta.respostasModelo.pergunta._id = pergunta._id;
-      vm.resposta.respostasModelo.pergunta.titulo = pergunta.titulo;
-      vm.resposta.respostasModelo.pergunta.peso = pergunta.peso;
-      vm.resposta.respostasModelo.opcao = JSON.parse(alternativa); //faz parse do json para o objeto
-         
-      vm.resposta.respostas[opcaoSelecionada] = vm.resposta.respostasModelo;
-    
+      let respostasModelo = {};
+      respostasModelo.pergunta = {};
+      respostasModelo.opcao = {};
+      respostasModelo.pergunta._id = pergunta._id;
+      respostasModelo.pergunta.titulo = pergunta.titulo;
+      respostasModelo.pergunta.peso = pergunta.peso;
+      respostasModelo.opcao = alternativa;
+
+      vm.resposta.pontuacao += pergunta.peso*alternativa.peso;
+
+
+      vm.resposta.respostas.push(respostasModelo);
       vm.alternativa = null;
-      opcaoSelecionada = -1; //reinicia index
-      var teste = JSON.stringify(vm.resposta); 
-      alert(teste);
-    }
+    
+  }
 
     function gravar() {
-      delete vm.resposta.respostasModelo;  //limpa o objeto com propriedade desnecessária
-      RespostaService.save(vm.resposta)
+    RespostaService.save(vm.resposta)
         .success(function () {
-          alert('salvou !!!');
          $location.path('/');
         })
     }

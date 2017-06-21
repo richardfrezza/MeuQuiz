@@ -11,7 +11,7 @@
         <ul>
           <div ng-repeat="opcao in pergunta.opcoes">
             <label>
-              <input type="radio" name="radius" ng-model="vm.alternativa" value="{{opcao}}" />
+              <input type="radio" name="radius" ng-model="vm.alternativa" value="{{opcao.id}}" ng-value="opcao"/>
                   {{opcao.descricao}}
             </label>
             {{vm.alternativa}}
