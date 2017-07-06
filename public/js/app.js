@@ -75,6 +75,18 @@
         controller: 'WizardController',
         controllerAs: 'vm'
       })
+       .when('/resultadosUsuarios/', {
+        templateUrl: 'partials/resultado-usuario-list.html',
+        controller: 'UsuarioResultadoListController',
+        controllerAs: 'vm'
+      })
+       .when('/resultadosUsuarios/:id', {
+        templateUrl: 'partials/resultado-usuario-respostas.html',
+        controller: 'UsuarioResultadoRespostasListController',
+        controllerAs: 'vm'
+      })
+
+      
       .otherwise('/');
   }
 })();

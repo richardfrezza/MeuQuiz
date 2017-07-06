@@ -39,6 +39,7 @@ module.exports = function(app) {
   });
   app.get('/api/respostas/:id', function(req, resp) {
     respostaModel.findById(req.params.id)
+     .populate('questionario','titulo descricao')
       .then(function(data) {
         resp.json(data);
       }, function(erro) {
