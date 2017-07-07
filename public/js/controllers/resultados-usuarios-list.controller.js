@@ -15,7 +15,6 @@
 
     activate();
     
-    
   function activate() {
       var query = vm.busca ? { 'usuario.nome': vm.busca } : {}
       RespostaService.find(query)

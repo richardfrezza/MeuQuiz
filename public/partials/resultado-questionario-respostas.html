@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Usuários</h2>
+  <h2>Usuários com maiores pontuações</h2>
   <form class="form-inline">
     <div class="form-group">
       <label class="control-label" for="busca">Filtro:</label>
@@ -18,13 +18,15 @@
           <th>Nome</th>
           <th>Questionario</th>
           <th>Data realização</th>
+          <th>Pontuação</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in vm.respostas | orderBy:'usuario.nome'">
+        <tr ng-repeat="item in vm.respostas | orderBy:'pontuacao'">
           <td>{{item.usuario.nome}}</td>
           <td>{{item.questionario.titulo}}</td>
           <td>{{item.realizacao | date: 'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{item.pontuacao}}</td>
           <td class="text-right">
             <a id="editar" class="btn btn-link" ng-href="{{'#/resultadosUsuarios/' + item._id}}">
               <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>

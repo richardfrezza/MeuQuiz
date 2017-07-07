@@ -85,8 +85,16 @@
         controller: 'UsuarioResultadoRespostasListController',
         controllerAs: 'vm'
       })
-
-      
+       .when('/resultadosQuestionarios', {
+        templateUrl: 'partials/resultado-questionario.html',
+        controller: 'QuestionarioListController',
+        controllerAs: 'vm'
+      })
+      .when('/:questionario/resultadosQuestionarios', {
+      templateUrl: 'partials/resultado-questionario-respostas.html',
+        controller: 'ResultadoQuestionarioListController',
+        controllerAs: 'vm'
+      })
       .otherwise('/');
   }
 })();
