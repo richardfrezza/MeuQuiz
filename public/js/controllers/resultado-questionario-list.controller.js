@@ -10,13 +10,12 @@
     var vm = this;
     vm.respostas = [];
     vm.busca = '';
-    alert($routeParams.questionario);
     vm.buscar = activate;
 
     activate();
         
   function activate() {
-      var query = $routeParams.questionario ? { 'questionario._id': $routeParams.questionario } : {}
+      var query = $routeParams.questionario ? { 'questionario': $routeParams.questionario } : {}
       RespostaService.find(query)
         .success(function (data) {
           vm.respostas = data;

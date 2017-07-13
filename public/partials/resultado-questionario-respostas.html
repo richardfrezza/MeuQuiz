@@ -16,15 +16,13 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Questionario</th>
           <th>Data realização</th>
           <th>Pontuação</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in vm.respostas | orderBy:'pontuacao'">
+        <tr ng-repeat="item in vm.respostas">
           <td>{{item.usuario.nome}}</td>
-          <td>{{item.questionario.titulo}}</td>
           <td>{{item.realizacao | date: 'dd/MM/yyyy HH:mm'}}</td>
           <td>{{item.pontuacao}}</td>
           <td class="text-right">

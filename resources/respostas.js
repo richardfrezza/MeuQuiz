@@ -4,7 +4,7 @@ var parseParams = require('../utils/parse-params');
 
 module.exports = function(app) {
   app.get('/api/respostas', function(req, resp) {
-    respostaModel.find(parseParams(req.query.filter), [], {sort: {usario: 1, }})
+    respostaModel.find(JSON.parse(req.query.filter), [], {sort: {pontuacao: -1}})
       .populate('usuario', 'nome documento')
       .populate('questionario','titulo')
       .then(function(dados){
