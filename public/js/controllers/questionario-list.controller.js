@@ -27,7 +27,7 @@
 
    function remover(questionario) {
      var titulo = questionario.titulo || "sem título";
-      confirmBox('Deseja realmente remover o questionário "' + titulo + '"', function () {
+      confirmBox('Deseja realmente remover o questionário "' + titulo + ' ?"', function () {
         QuestionarioService.remove(questionario._id)
           .success(function () {
             activate();

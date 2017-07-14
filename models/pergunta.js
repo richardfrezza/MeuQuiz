@@ -2,15 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var _model = new Schema({
-  titulo: String,
+  titulo: {type: String, required: true },
     criacao: {
     type: Date,
     default: Date.now
   },
-  peso: Number,
+  peso: { type: Number, required: true },
   opcoes: [{
-    descricao: String,
-    peso: Number,
+    descricao: { type: String, required: true },
+    peso: { type: Number, required: true },
   }],
    questionario: {
     type: Schema.Types.ObjectId,

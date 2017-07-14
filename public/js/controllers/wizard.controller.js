@@ -5,14 +5,13 @@
     .module('app')
     .controller('WizardController', WizardController);
 
-  WizardController.$inject = ['$location','PerguntaService','RespostaService', '$routeParams']
+  WizardController.$inject = ['$location','PerguntaService','RespostaService', '$routeParams', 'UsuarioService']
 
-  function WizardController($location,PerguntaService,RespostaService, $routeParams) {
+  function WizardController($location,PerguntaService,RespostaService, $routeParams, UsuarioService) {
     var vm = this;
     vm.resposta = {};
     vm.resposta.respostas = [];
        
-    vm.resposta.usuario =  "593762f2a32c2720cc5b09e7"; //contexto
     vm.resposta.questionario =  $routeParams.questionario; //uri
     vm.resposta.pontuacao = null;
       
@@ -20,6 +19,7 @@
 
     vm.gravar = gravar;
     vm.salvar = salvar;
+    vm.insereUsuario = insereUsuario;
     vm.alternativa = null;
 
     
@@ -31,8 +31,12 @@
         PerguntaService.find()
           .success(function (data) {
             vm.perguntas = data;
-       
-          });
+        });
+        UsuarioService.find()
+          .success(function (data) {
+            vm.usuarios = data;
+        });
+
     }
 
     function salvar(pergunta, alternativa){
@@ -45,10 +49,8 @@
       respostasModelo.pergunta.titulo = pergunta.titulo;
       respostasModelo.pergunta.peso = pergunta.peso;
       respostasModelo.opcao = alternativa;
-
+      
       vm.resposta.pontuacao += pergunta.peso*alternativa.peso;
-
-
       vm.resposta.respostas.push(respostasModelo);
       vm.alternativa = null;
     
@@ -61,7 +63,9 @@
         })
     }
 
-
+    function insereUsuario(usuario){
+      vm.resposta.usuario = usuario._id;
+    }
     
   }
 

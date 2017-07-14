@@ -1,21 +1,27 @@
 <div class="container">
   <h2>{{vm.titulo}}</h2>
-  <form class="form-horizontal">
+  <form name="perguntaForm" class="form-horizontal">
+    <div ng-show="perguntaForm.titulo.$error.required && perguntaForm.titulo.$dirty" id="divError" style="margin-bottom: 15px;" class="list-group-item list-group-item-danger">
+      <li>O campo 'título' deve ser preenchido !</li>
+    </div> 
+    <div ng-show="perguntaForm.peso.$error.required && perguntaForm.peso.$dirty" id="divError" style="margin-bottom: 15px;" class="list-group-item list-group-item-danger">
+      <li>O campo 'peso' deve ser preenchido !</li>
+    </div> 
     <div class="form-group">
       <label for="titulo" class="col-sm-2 control-label">Título</label>
       <div class="col-sm-8">
-        <input type="text" class="form-control" ng-model="vm.pergunta.titulo" id="titulo" required>
+        <input type="text" class="form-control" name="titulo" ng-model="vm.pergunta.titulo" id="titulo" ng-required="true">
       </div>
     </div>
     <div class="form-group">
       <label for="peso" class="col-sm-2 control-label">Peso</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" ng-model="vm.pergunta.peso"  id="peso">
+      <div class="col-sm-2">
+        <input type="number" class="form-control" name="peso" ng-model="vm.pergunta.peso"  id="peso" ng-required="true">
       </div>
     </div>
     <div class="text-right col-sm-10">
       <a ng-href="{{'#/' + vm.questionario + '/perguntas/'}}" class="btn btn-danger">Cancelar</a>
-      <button ng-click="vm.salvar()" type="button" class="btn btn-success">Salvar</button>
+      <button ng-click="vm.salvar()"  type="button" ng-disabled="perguntaForm.$invalid" class="btn btn-success">Salvar</button>
     </div>
   </form>
 </div>

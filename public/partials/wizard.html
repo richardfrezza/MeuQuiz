@@ -1,13 +1,25 @@
-<wizard on-finish="vm.gravar()" on-cancel="vm.cancelar" indicators-position="top" edit-mode="false"> 
+<div class="container">
+<wizard on-finish="vm.gravar()" on-cancel="vm.cancelar" hide-indicators="true" edit-mode="false"> 
     <wz-step wz-title="Iniciar" wz-order="0">
-        <div class="text-left col-sm-12">
-          </br>
-          <h1>WIZARD</h1>
+      <h1>Bem vindo a área de respostas de seu questionário</h1>
           <p>
-            Inicie o questionário para responder as perguntas !
-          </p>
-          <input class="btn btn-success" type="submit" wz-next value="Iniciar" />
-        </div>
+            Selecione um usuário e clique em iniciar para responder as perguntas
+          </p></br>
+        <form name="formUsuario"> 
+          <div class="text-left col-sm-12"></br>
+              <div class="form-group">
+              <label for="usuario" class="col-sm-1">Usuário</label>
+                  <div class="col-sm-7">
+                    <select name="usuario" ng-model="vm.usuario" ng-options="usuario.nome for usuario in vm.usuarios" class="form-control" id="usuario" ng-required="true">
+                        <option value=""> Selecione um usuário</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3">
+                    <input class="btn btn-success" ng-disabled="formUsuario.$invalid" ng-click="vm.insereUsuario(vm.usuario)" ng- type="submit" wz-next value="Iniciar" />
+                  </div>  
+              </div>
+            </div>
+        </form>
     </wz-step>
     <wz-step ng-repeat="pergunta in vm.perguntas track by $index" wz-title="{{+'___Nº '+($index + 1)+' __'}}" wz-order="{{$index + 1}}">
         <div class="text-left col-sm-12">
@@ -21,14 +33,18 @@
               </label>
             </div>
           </ul>
+          <hr>
           <input class="btn btn-success" type="submit" wz-next value="Confirma" ng-disabled="!vm.alternativa" ng-click="vm.salvar(pergunta, vm.alternativa)"/>
         </div>    
     </wz-step>
     <wz-step wz-title="Finalizar" wz-order="100">
-        <h1>Muito obrigado</h1>
+      <div class="text-center col-sm-12">
+        <h1>Muito obrigado!</h1>
         <p>
           Agradecemos por sua colaboração
         </p>
         <input class="btn btn-success" type="submit" wz-next value="Finalizar" />
+      </div> 
     </wz-step>
 </wizard>
+</div>

@@ -55,12 +55,12 @@
         controller: 'PerguntaFormController',
         controllerAs: 'vm'
       })
-      .when('/:questionario/perguntas/:id', {
+      /*.when('/:questionario/perguntas/:id', {
         templateUrl: 'partials/pergunta-form.html',
         controller: 'PerguntaFormController',
         controllerAs: 'vm'
-      })
-      .when('/:questionario/perguntas/opcao/:id', {
+      })*/
+      .when('/:questionario/perguntas/:id', {
         templateUrl: 'partials/pergunta-opcao-form.html',
         controller: 'PerguntaFormController',
         controllerAs: 'vm'

@@ -45,12 +45,14 @@
       vm.pergunta.opcoes[opcaoSelecionada] = vm.opcao;
       opcaoSelecionada = -1;
       vm.opcao = null;
+      adicionarAlternativa();
     }
 
     function adicionarAlternativa() {
       vm.opcao = {}
       vm.modalTitulo = 'Nova Alternativa';
       opcaoSelecionada = (vm.pergunta.opcoes && vm.pergunta.opcoes.length) || 0;
+      $scope.opcaoForm.$setPristine();
     }
 
     function editarAlternativa(opcao) {
@@ -60,7 +62,7 @@
     }
 
     function removerAlternativa(opcao) {
-      confirmBox('Tem certeza que deseja remover a alternativa', function () {
+      confirmBox('Tem certeza que deseja remover a alternativa ?', function () {
         let pos = vm.pergunta.opcoes.indexOf(opcao);
         vm.pergunta.opcoes.splice(pos, 1);
         $scope.$apply();
