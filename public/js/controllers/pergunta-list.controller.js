@@ -18,8 +18,9 @@
     activate();   
 
   function activate() {
-      //var query = vm.busca ? {titulo: vm.busca, questionario: vm.questionario} : {questionario: vm.questionario};
-      var query = vm.busca ? {titulo: vm.busca} : {};
+    //var query = vm.busca ? {titulo: vm.busca} :  $routeParams.questionario ? {'questionario': $routeParams.questionario } : {};
+    var query = $routeParams.questionario ? { 'questionario': $routeParams.questionario } : {}
+     //var query = vm.busca ? {titulo: vm.busca} : {};
       PerguntaService.find(query)
         .success(function (data) {
           vm.perguntas = data;

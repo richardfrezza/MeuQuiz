@@ -28,7 +28,8 @@
     ////////////////
 
     function activate() {
-        PerguntaService.find()
+      var query = $routeParams.questionario ? { 'questionario': $routeParams.questionario } : {}
+        PerguntaService.find(query)
           .success(function (data) {
             vm.perguntas = data;
         });

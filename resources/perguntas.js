@@ -44,8 +44,16 @@ module.exports = function(app) {
         resp.status(500).json(erro);
       });
   });
+  app.get('/api/:questionario/perguntas/:id', function(req, resp) {
+    perguntaModel.findById(req.params.id)
+      .then(function(data) {
+        resp.json(data);
+      }, function(erro) {
+        resp.status(500).json(erro);
+      });
+  });
   app.get('/api/:questionario/perguntas', function(req, resp) {
-    perguntaModel.find({questionario: req.params.questionario})
+    perguntaModel.find(JSON.parse(req.query.filter), [], {sort: {pontuacao: -1}})
       .then(function(data) {
         resp.json(data);
       }, function(erro) {

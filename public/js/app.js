@@ -55,11 +55,6 @@
         controller: 'PerguntaFormController',
         controllerAs: 'vm'
       })
-      /*.when('/:questionario/perguntas/:id', {
-        templateUrl: 'partials/pergunta-form.html',
-        controller: 'PerguntaFormController',
-        controllerAs: 'vm'
-      })*/
       .when('/:questionario/perguntas/:id', {
         templateUrl: 'partials/pergunta-opcao-form.html',
         controller: 'PerguntaFormController',

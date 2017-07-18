@@ -15,31 +15,29 @@
       
     };
 
-    var URL = '/api/perguntas';
-    //var URL = '/api/'+$routeParams.questionario+'/perguntas';
-    //var URL = '/api/:questionario'/perguntas; // ??????
-    
+          
     return service;
 
     ////////////////
     function find(query) {
+      URL = $routeParams.questionario ? '/api/'+$routeParams.questionario+'/perguntas':'/api/perguntas';
       return $http.get(URL, { params: { filter: JSON.stringify(query) } });
     }
 
     function findById(id) {
-      return $http.get(URL + '/' + id);
+      return $http.get('/api/perguntas/' + id);
     }
 
     function save(record) {
       if (record._id) {
-        return $http.put(URL + '/' + record._id, record);
+        return $http.put('/api/perguntas/' + record._id, record);
       } else {
-        return $http.post(URL, record);
+        return $http.post('/api/perguntas', record);
       }
     }
 
     function remove(id) {
-      return $http.delete(URL + '/' + id);
+      return $http.delete('/api/perguntas/' + id);
     }
   }
 })();
